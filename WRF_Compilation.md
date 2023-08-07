@@ -20,12 +20,12 @@ This section tests whether necessary compliers and scripting languages are prese
 To test whether these exist on the system, type the following in your terminal:
 
 ```bash
-$ which gfortran
-$ which cpp
-$ which gcc
-$ which csh
-$ which sh
-$ which perl
+which gfortran
+which cpp
+which gcc
+which csh
+which sh
+which perl
 ```
 
 Each of the above commands should give a similar output given below:
@@ -75,32 +75,32 @@ This section focuses on building the following three types of libraries based on
 To start building the libraries make one directory for the model and another directory for the libraries inside the model directory on your system using the following commands:
 
 ```bash
-$ mkdir WRF
-$ cd WRF
-$ mkdir libraries
+mkdir WRF
+cd WRF
+mkdir libraries
 ```
 
 Now the following commands need to be run to set the environment variables.
 
 ```bash
-$ export wrf=/path_to_the_created_WRF_directory
-$ export DIR=$wrf/libraries
-$ export CC=gcc
-$ export CXX=g++
-$ export FC=gfortran
-$ export FCFLAGS=-m64
-$ export F77=gfortran
-$ export FFLAGS=-m64
-$ export JASPERLIB=$DIR/grib2/lib
-$ export JASPERINC=$DIR/grib2/include
-$ export LDFLAGS=-L$DIR/grib2/lib
-$ export CPPFLAGS=-I$DIR/grib2/include
+export wrf=/path_to_the_created_WRF_directory
+export DIR=$wrf/libraries
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+export FCFLAGS=-m64
+export F77=gfortran
+export FFLAGS=-m64
+export JASPERLIB=$DIR/grib2/lib
+export JASPERINC=$DIR/grib2/include
+export LDFLAGS=-L$DIR/grib2/lib
+export CPPFLAGS=-I$DIR/grib2/include
 ```
 
 You can run these commands individually or copy them to a text file with `.sh` extension (For example: ***file_name.sh***) and run the following command to execute the file:
 
 ```bash
-$ source #file_name.sh
+source #file_name.sh
 ```
 
 
@@ -121,12 +121,12 @@ $ source #file_name.sh
 >> Untar `netcdf-c-4.9.0.tar.gz` and build the library using the following commands:
 >>
 >> ```bash
->> $ tar xvfz netcdf-c-4.9.0.tar.gz
->> $ cd netcdf-c-4.9.0
->> $ ./configure --prefix=$DIR/netcdf --disable-dap --disable-netcdf-4 --disable-shared
->> $ make
->> $ make install
->> $ cd ..
+>> tar xvfz netcdf-c-4.9.0.tar.gz
+>> cd netcdf-c-4.9.0
+>> ./configure --prefix=$DIR/netcdf --disable-dap --disable-netcdf-4 --disable-shared
+>> make
+>> make install
+>> cd ..
 >> ```
 >> 
 >> A successful built should give an output like below in the end. If you get otherwise please check for errors.
@@ -166,23 +166,23 @@ $ source #file_name.sh
 > Set the following environment variables:
 > 
 > ```bash
-> $ export LIBS="-lnetcdf -lz"
-> $ export LDFLAGS=-L$NETCDF/lib
-> $ export CPPFLAGS=-I$NETCDF/include
-> $ export NETCDF=$DIR/netcdf
-> $ export PATH=$NETCDF/bin:$PATH
+> export LIBS="-lnetcdf -lz"
+> export LDFLAGS=-L$NETCDF/lib
+> export CPPFLAGS=-I$NETCDF/include
+> export NETCDF=$DIR/netcdf
+> export PATH=$NETCDF/bin:$PATH
 > ```
 >
 >> #### NetCDF-Fortran
 >> Untar `netcdf-fortran-4.5.4.tar.gz` and build the library using the following commands:
 >>
 >> ```bash
->> $ tar xvfz netcdf-fortran-4.5.4.tar.gz
->> $ cd netcdf-fortran-4.5.4
->> $ ./configure --prefix=$DIR/netcdf --disable-dap --disable-netcdf-4 --disable-shared
->> $ make
->> $ make install
->> $ cd ..
+>> tar xvfz netcdf-fortran-4.5.4.tar.gz
+>> cd netcdf-fortran-4.5.4
+>> ./configure --prefix=$DIR/netcdf --disable-dap --disable-netcdf-4 --disable-shared
+>> make
+>> make install
+>> cd ..
 >> ```
 >> 
 >> A successful built should give an output with a successfull message similar to the NetCDF-C.
@@ -196,13 +196,13 @@ $ source #file_name.sh
 > To build WRF, MPICH will be built as a MPI library. You can find the latest release [here](https://www.mpich.org/downloads/). This documentation will use [mpich-4.1.2.tar.gz](https://www.mpich.org/static/downloads/4.1.2/mpich-4.1.2.tar.gz) as an example. Untar `mpich-4.1.2.tar.gz` and build the library using following commands:
 >
 > ```bash
-> $ tar xvfz mpich-4.1.2.tar.gz
-> $ cd mpich-4.1.2
-> $ ./configure --prefix=$DIR/mpich
-> $ make
-> $ make install
-> $ cd ..
-> $ export PATH=$DIR/mpich/bin:$PATH    #SET THE ENVIRONMENT VARIABLE
+> tar xvfz mpich-4.1.2.tar.gz
+> cd mpich-4.1.2
+> ./configure --prefix=$DIR/mpich
+> make
+> make install
+> cd ..
+> export PATH=$DIR/mpich/bin:$PATH    #SET THE ENVIRONMENT VARIABLE
 > ```
 >
 >
@@ -223,16 +223,16 @@ $ source #file_name.sh
 >
 >>
 >> #### zlib
->>
+>> 
 >> Untar `zlib-1.2.13.tar.gz` and use following commands to build the library.
->>
+>> 
 >> ```bash
->> $ tar xvfz zlib-1.2.13.tar.gz
->> $ cd zlib-1.2.13
->> $ ./configure --prefix=$DIR/grib2
->> $ make
->> $ make install
->> $ cd ..
+>> tar xvfz zlib-1.2.13.tar.gz
+>> cd zlib-1.2.13
+>> ./configure --prefix=$DIR/grib2
+>> make
+>> make install
+>> cd ..
 >> ```
 >> 
 >> #### libpng
@@ -240,12 +240,12 @@ $ source #file_name.sh
 >> Untar `libpng-1.6.40.tar.gz` and use following commands to build the library.
 >> 
 >> ```bash
->> $ tar xvfz libpng-1.6.40.tar.gz
->> $ cd libpng-1.6.40
->> $ ./configure --prefix=$DIR/grib2
->> $ make
->> $ make install
->> $ cd ..
+>> tar xvfz libpng-1.6.40.tar.gz
+>> cd libpng-1.6.40
+>> ./configure --prefix=$DIR/grib2
+>> make
+>> make install
+>> cd ..
 >> ```
 >> 
 >> #### Jasper
@@ -253,11 +253,10 @@ $ source #file_name.sh
 >> Untar `jasper-1.900.1.tar.gz` and use following commands to build the library.
 >> 
 >> ```bash
->> $ tar xvfz jasper-1.900.1.tar.gz
->> $ cd jasper-1.900.1
->> $ ./configure --prefix=$DIR/grib2
->> $ make
->> $ make install
->> $ cd ..
+>> tar xvfz jasper-1.900.1.tar.gz
+>> cd jasper-1.900.1
+>> ./configure --prefix=$DIR/grib2
+>> make
+>> make install
+>> cd ..
 >> ```
- 
